@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue学习</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="str">{{msg}}</div>
+        <div class="tem" v-html="template"></div>
+        <a v-bind:href="url1" class="url1">百度</a>
+        <a :href="url2" class="url2">慕课</a>
+        <div class="count">{{count}}</div>
+        <button type="button" class="add" v-on:click="add">加数1</button>
+        <button type="button" class="add" @click="add()">加数2</button>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                msg: "hello vue!!",
+                template: "<div class='template'>hello template!!</div>",
+                url1: "https://www.baidu.com",
+                url2: "https://www.imooc.com",
+                count: 0
+            },
+            methods: {
+                add() {
+                    this.count ++;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
