@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>computed-watch</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <p>{{info}}</p>
+        <p>{{msg2}}</p>
+        <p>{{info2}}</p>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                msg: "msg",
+                info: "info"
+            },
+            watch: {
+                msg: function (newVal, oldVal) {
+                    console.log(`newVal: ${newVal}`);
+                    console.log(`oldVal: ${oldVal}`);
+                },
+                info: function (newVal, oldVal) {
+                    console.log(`newVal: ${newVal}`);
+                    console.log(`oldVal: ${oldVal}`);
+                }
+            },
+            computed: {
+                msg2: function() {
+                    return `watch ${this.msg}`;
+                },
+                info2: function() {
+                    return `watch ${this.info}`;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
