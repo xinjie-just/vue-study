@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>for-in--if--class--style</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-if="count > 0">count大于0</div>
+        <div v-else-if="count === 0">count等于0</div>
+        <div v-else="count < 0">count小于0</div>
+        <ul>
+            <li v-for="item in list">{{item}}</li>
+        </ul>
+        <ol>
+            <li v-for="item in persons">{{item.name}}</li>
+        </ol>
+        <div :class="{active: true}"></div>
+        <div :style="style">字体颜色</div>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                msg: "msg",
+                count: 0,
+                list: [1, 3, 5, 7],
+                style: {
+                    color: 'red'
+                },
+                persons: [
+                    {
+                        name: "lixinjie",
+                        age: 26
+                    },
+                    {
+                        name: "gexiuqi",
+                        age: 25
+                    }
+                ]
+            }
+        });
+    </script>
+</body>
+</html>
